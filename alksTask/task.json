@@ -1,0 +1,79 @@
+{
+    "id": "c0ba09f0-339f-41ae-b4df-219a87832a82",
+    "name": "ALKSTask",
+    "friendlyName": "ALKS Task",
+    "description": "Runs ALKS with provided credentials",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Glenn Dawson",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "instanceNameFormat": "ALKS $(alksRole)",
+    "inputs": [
+        {
+            "name": "alksAccount",
+            "type": "string",
+            "label": "ALKS Account",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "ALKS Account"
+        },
+        {
+            "name": "alksRole",
+            "type": "string",
+            "label": "ALKS Role",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "ALKS Role"
+        },
+        {
+            "name": "alksIam",
+            "type": "boolean",
+            "label": "Create IAM session",
+            "defaultValue": "false",
+            "required": "false",
+            "helpMarkDown": "Creates an IAM session key with a 1 hour time limit."
+        },
+        {
+            "name": "alksSessionTime",
+            "type": "string",
+            "label": "ALKS Session Time",
+            "defaultValue": "2",
+            "required": false,
+            "helpMarkDown": "Session time limit in 1 hour increments. (Supported: 1, 2, 4, 8, 12, 24)",
+            "visibleRule": "alksIam = false"
+        },
+        {
+            "name": "alksServer",
+            "type": "string",
+            "label": "ALKS Server",
+            "defaultValue": "https://alks.coxautoinc.com/rest",
+            "required": true,
+            "helpMarkDown": "ALKS Server in the form of https://alks.youralkshost.com/rest"
+        },
+        {
+            "name": "alksUserId",
+            "type": "string",
+            "label": "ALKS Username",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "ALKS Username"
+        },
+        {
+            "name": "alksPassword",
+            "type": "string",
+            "label": "ALKS Password",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "**Note:** Use a secure variable reference (e.g., $(password))"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}

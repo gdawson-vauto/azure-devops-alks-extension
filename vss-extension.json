@@ -1,0 +1,35 @@
+{
+    "manifestVersion": 1,
+    "id": "build-release-task",
+    "name": "ALKS Tools",
+    "version": "0.1.0",
+    "publisher": "vauto-testpublisher",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Tools for running ALKS.",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+    },
+    "files": [
+        {
+            "path": "alksTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "alksTask"
+            }
+        }
+    ]
+}
