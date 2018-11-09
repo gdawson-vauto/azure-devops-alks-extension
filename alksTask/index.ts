@@ -5,7 +5,7 @@ async function run() {
     try {
         const alksAccount: string = tl.getInput('alksAccount', true);
         const alksRole: string = tl.getInput('alksRole', true);
-        const alksIam: boolean = Boolean(tl.getInput('alksIam', true));
+        const alksIam: boolean = Boolean(tl.getInput('alksIam', true) == "true");
         const sessionTime: number = alksIam ? 1 : Number(tl.getInput('alksSessionTime'));
         const server: string = tl.getInput('alksServer', true);
         const userid: string = tl.getInput('alksUserId', true);
@@ -27,7 +27,7 @@ async function run() {
         var auth = {password: password};
 
         if (alksIam) {
-            alks.createIamKey(alksAccount, auth, {debug: true}, (err: any, key: any) => {
+            alks.createIamKey(data, auth, {debug: true}, (err: any, key: any) => {
                 if (err) console.error(err);
                 else setAlksAwsVariables(key);
             });
